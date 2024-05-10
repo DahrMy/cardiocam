@@ -40,14 +40,14 @@
 
         <TextView
             android:id="@+id/tv_appName"
-            android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:fontFamily="@font/rubik"
-            android:textFontWeight="600"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/rubik_bold"
+            android:text="@string/splashScreen_greeting"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="54sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
@@ -69,6 +69,7 @@
 
         <TextView
             android:id="@+id/tv_percentage"
+            android:text="@string/tv_percentage_text"
             android:fontFamily="@font/rubik"
             android:textSize="14sp"
             android:textAlignment="center"
