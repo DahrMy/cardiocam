@@ -2,7 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Cardiocam" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primaryDark</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="android:colorPrimary">@color/primaryDark</item>
+        <item name="android:colorPrimaryDark">@color/primaryDark</item>
+        <item name="android:statusBarColor">@color/primaryDark</item>
+
     </style>
 
     <style name="Theme.Cardiocam" parent="Base.Theme.Cardiocam" />
