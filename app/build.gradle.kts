@@ -42,6 +42,10 @@ dependencies {
     // Splashscreen
     implementation(libs.androidx.core.splashscreen)
 
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
     // Default
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

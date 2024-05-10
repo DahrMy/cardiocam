@@ -2,5 +2,5 @@
     <string name="app_name">Cardiocam</string>
     <string name="iv_logo_contentDescription">App logo</string>
     <string name="splashScreen_greeting">Heart Rate</string>
-    <string name="tv_percentage_text">%d%</string>
+    <string name="tv_percentage_text">%d%%</string>
 </resources>

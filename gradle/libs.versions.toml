@@ -11,6 +11,10 @@ material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 
+# KotlinX
+coroutines = "1.8.0"
+
+# Other
 coreSplashscreen = "1.0.1"
 
 [libraries]
@@ -27,6 +31,9 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 # Splash screen
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 
+# KotlinX
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
