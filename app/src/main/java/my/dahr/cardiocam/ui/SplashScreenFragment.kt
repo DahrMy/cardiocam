@@ -1,10 +1,12 @@
 package my.dahr.cardiocam.ui
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import my.dahr.cardiocam.databinding.FragmentSplashScreenBinding
 
@@ -18,10 +20,15 @@ class SplashScreenFragment : Fragment() {
 
     private var _binding: FragmentSplashScreenBinding? = null
     private val binding: FragmentSplashScreenBinding get() = _binding!!
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
+
+        binding.progressBar.progress = 58
+
+
         return binding.root
     }
 

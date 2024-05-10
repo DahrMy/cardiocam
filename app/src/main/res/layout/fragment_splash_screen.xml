@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SplashScreenFragment">
 
+    <!-- Background -->
     <ImageView
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
@@ -16,5 +18,46 @@
         android:scaleX="2"
         android:scaleY="1"
         tools:ignore="ContentDescription" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="31dp"
+            android:progressDrawable="@drawable/progress_bar_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.93" />
+
+        <TextView
+            android:id="@+id/tv_percentage"
+            android:fontFamily="@font/rubik"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:shadowColor="@color/textShadow"
+            android:shadowDy="2.0"
+            android:shadowRadius="10"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/progress_bar"
+            tools:text="58%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
