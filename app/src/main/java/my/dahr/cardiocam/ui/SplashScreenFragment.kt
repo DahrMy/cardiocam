@@ -1,13 +1,10 @@
 package my.dahr.cardiocam.ui
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentSplashScreenBinding
+import my.dahr.cardiocam.ui.onboarding.OnboardingFragment
 
 @SuppressLint("CustomSplashScreen")
 /** Start from Android 12 we don't need to create custom splash screens.
@@ -27,7 +25,7 @@ class SplashScreenFragment : Fragment() {
 
     private var _binding: FragmentSplashScreenBinding? = null
     private val binding: FragmentSplashScreenBinding get() = _binding!!
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -47,7 +45,12 @@ class SplashScreenFragment : Fragment() {
         }
 
         lifecycleScope.launch(Dispatchers.Main) {
-            Toast.makeText(requireContext(), "${isReady.await()}", Toast.LENGTH_SHORT).show()
+            if (isReady.await()) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, OnboardingFragment())
+                    .commit()
+            }
+
         }
 
     }

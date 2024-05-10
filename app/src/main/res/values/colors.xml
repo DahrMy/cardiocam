@@ -5,6 +5,7 @@
     <color name="windowBackgroundPrimary">#B2DEFB</color>
     <color name="primary">#FF6B6B</color>
     <color name="primaryDark">#70A8CC</color>
+    <color name="neutral">#E6E6E6</color>
     <color name="barsBackground">#FFACAC</color>
     <color name="barsStroke">#FF4B4B</color>
     <color name="textShadow">#4D000000</color>

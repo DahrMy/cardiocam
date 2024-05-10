@@ -42,6 +42,9 @@ dependencies {
     // Splashscreen
     implementation(libs.androidx.core.splashscreen)
 
+    // Dot indicators
+    implementation(libs.dotsindicator)
+
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)

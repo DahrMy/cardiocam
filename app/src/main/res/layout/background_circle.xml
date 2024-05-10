@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundImageView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/circle_background"
+    android:scaleType="centerCrop"
+    android:translationY="-114dp"
+    android:scaleX="2"
+    android:scaleY="1"
+    tools:ignore="ContentDescription" />

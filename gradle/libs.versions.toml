@@ -16,6 +16,7 @@ coroutines = "1.8.0"
 
 # Other
 coreSplashscreen = "1.0.1"
+dotsindicator = "5.0"
 
 [libraries]
 # Default
@@ -30,6 +31,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 
 # Splash screen
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+# Dot indicators
+dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
 
 # KotlinX
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
