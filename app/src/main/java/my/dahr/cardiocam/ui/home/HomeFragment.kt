@@ -9,7 +9,7 @@ import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentHomeBinding
-import my.dahr.cardiocam.ui.measurement.MeasurementFragment
+import my.dahr.cardiocam.ui.result.ResultFragment
 
 
 class HomeFragment : Fragment() {
@@ -32,7 +32,8 @@ class HomeFragment : Fragment() {
         binding.btMeasure.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .addToBackStack("")
-                .replace(R.id.fragment_container_view, MeasurementFragment())
+//                .replace(R.id.fragment_container_view, MeasurementFragment())
+                .replace(R.id.fragment_container_view, ResultFragment())
                 .commit()
         }
     }

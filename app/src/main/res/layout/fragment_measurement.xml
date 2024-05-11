@@ -79,6 +79,7 @@
 
         <TextView
             android:id="@+id/tv_bpm"
+            android:text="@string/tv_bpm_text_empty"
             android:textSize="74sp"
             android:textColor="@color/white"
             android:fontFamily="@font/rubik_bold"
