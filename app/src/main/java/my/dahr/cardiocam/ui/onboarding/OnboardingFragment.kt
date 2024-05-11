@@ -16,6 +16,12 @@ class OnboardingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
+
+        val dotsIndicator = binding.dotsIndicator
+        val viewPager = binding.viewPager
+        viewPager.adapter = ViewPagerAdapter(requireContext(), requireActivity())
+        dotsIndicator.attachTo(viewPager)
+
         return binding.root
     }
 

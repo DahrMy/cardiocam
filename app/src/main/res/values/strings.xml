@@ -4,4 +4,11 @@
     <string name="splashScreen_greeting">Heart Rate</string>
     <string name="tv_percentage_text">%d%%</string>
     <string name="bt_onboarding_text_next">Next</string>
+    
+    <string name="onboardingPage_tv_headline_page0">Your blood pressure tracker</string>
+    <string name="onboardingPage_tv_headline_page1">Personalized advice</string>
+    <string name="onboardingPage_tv_headline_page2">Reminder</string>
+    <string name="onboardingPage_tv_description_page0">Record, track and analyze your blood pressure readings.</string>
+    <string name="onboardingPage_tv_description_page1">The program provides actionable tips to help you maintain optimal blood pressure levels and reduce your risk factors for cardiovascular disease.</string>
+    <string name="onboardingPage_tv_description_page2">Stay on schedule with blood pressure monitoring and medication with special reminders.</string>
 </resources>
