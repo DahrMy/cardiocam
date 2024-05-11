@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackgroundSecondary"
+    tools:context=".ui.home.HomeFragment">
+
+    <include layout="@layout/background_circle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="top"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_bt_history"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:flow_horizontalGap="12dp"
+                    app:constraint_referenced_ids="tv_button_text_history, iv_button_ic_history" />
+
+                <TextView
+                    android:id="@+id/tv_button_text_history"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik"
+                    android:text="@string/tv_button_history_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:id="@+id/iv_button_ic_history"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:contentDescription="@string/tv_button_history_text"
+                    android:src="@drawable/ic_history"
+                    app:tint="@color/white"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tv_lastMeasurement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik_bold"
+            android:text="@string/tv_lastMeasurement_text"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginStart="33dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:text="68 BPM" />
+
+        <!-- TODO: Add shadow to the imageView -->
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:contentDescription="@string/iv_logo_contentDescription"
+            android:src="@drawable/app_logo"
+            android:layout_width="284dp"
+            android:layout_height="266dp"
+            android:layout_marginTop="121dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_lastMeasurement"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_measure"
+            android:background="@drawable/bt_measure_gradient"
+            android:foreground="@drawable/bt_heart_rate"
+            android:foregroundGravity="center"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentOnboardingBinding
+import my.dahr.cardiocam.ui.home.HomeFragment
 
 class OnboardingFragment : Fragment() {
 
@@ -28,20 +28,25 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun setListeners() {
+
         binding.btNext.setOnClickListener {
             if (viewPager.currentItem < lastItemPosition) {
                 viewPager.currentItem++
                 setButtonNextText()
             } else {
-                Toast.makeText(requireContext(), "End", Toast.LENGTH_SHORT).show()
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, HomeFragment())
+                    .commit()
             }
         }
+
         binding.viewPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setButtonNextText()
             }
         })
+
     }
 
     private fun setContent() {

@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:scaleX="1"
-        android:scaleY="1"
         android:src="@drawable/background_circle"
         android:translationY="-24dp"
         tools:ignore="ContentDescription" />
@@ -21,13 +19,11 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="21dp"
-        android:background="@android:color/transparent">
+        android:layout_margin="21dp">
 
         <ImageView
             android:id="@+id/iv_foreground"
             android:contentDescription="@string/onboarding_iv_foreground_contentDescription"
-            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +37,6 @@
             android:textAlignment="center"
             android:fontFamily="@font/rubik_bold"
             android:textColor="@color/black"
-            android:background="@android:color/transparent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="88dp"
@@ -56,7 +51,6 @@
             android:textAlignment="center"
             android:fontFamily="@font/rubik"
             android:textColor="@color/black"
-            android:background="@android:color/transparent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

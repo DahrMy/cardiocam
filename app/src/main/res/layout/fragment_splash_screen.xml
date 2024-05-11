@@ -7,19 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.SplashScreenFragment">
 
-    <!-- Background -->
-    <include layout="@layout/background_circle" />
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_circle"
+        android:translationY="-126dp"
+        tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent">
+        android:layout_height="match_parent">
 
         <!-- TODO: Add shadow to the imageView -->
         <ImageView
             android:id="@+id/iv_logo"
             android:src="@drawable/app_logo"
-            android:background="@android:color/transparent"
             android:contentDescription="@string/iv_logo_contentDescription"
             android:layout_width="284dp"
             android:layout_height="266dp"
@@ -33,7 +37,6 @@
             android:id="@+id/tv_appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:fontFamily="@font/rubik_bold"
             android:text="@string/splashScreen_greeting"
             android:textColor="@color/black"
@@ -67,7 +70,6 @@
             android:shadowDy="2.0"
             android:shadowRadius="10"
             android:textColor="@color/white"
-            android:background="@android:color/transparent"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/progress_bar"

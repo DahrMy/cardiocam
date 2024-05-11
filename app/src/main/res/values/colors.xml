@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="windowBackgroundPrimary">#B2DEFB</color>
+    <color name="windowBackgroundSecondary">#F2F2F2</color>
     <color name="primary">#FF6B6B</color>
     <color name="primaryDark">#70A8CC</color>
     <color name="neutral">#E6E6E6</color>
