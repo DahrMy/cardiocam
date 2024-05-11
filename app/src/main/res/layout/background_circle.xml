@@ -4,9 +4,9 @@
     android:id="@+id/backgroundImageView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:src="@drawable/circle_background"
+    android:src="@drawable/background_circle"
     android:scaleType="centerCrop"
     android:translationY="-114dp"
-    android:scaleX="2"
+    android:scaleX="1"
     android:scaleY="1"
     tools:ignore="ContentDescription" />

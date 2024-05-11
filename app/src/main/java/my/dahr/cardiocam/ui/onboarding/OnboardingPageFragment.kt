@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import my.dahr.cardiocam.databinding.FragmentOnboardingPageBinding
 
@@ -19,6 +20,7 @@ class OnboardingPageFragment : Fragment() {
 
     private var headline: String? = null
     private var description: String? = null
+
     @DrawableRes
     private var imageResId: Int? = null
 
@@ -35,10 +37,18 @@ class OnboardingPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOnboardingPageBinding.inflate(inflater, container, false)
-
-        binding.tvHeadline.text = headline
-
+        setContent()
         return binding.root
+    }
+
+    private fun setContent() {
+        binding.apply {
+            tvHeadline.text = headline
+            tvDescription.text = description
+            imageResId?.let { id ->
+                ivForeground.setImageDrawable(ResourcesCompat.getDrawable(resources, id, null))
+            }
+        }
     }
 
     companion object {
