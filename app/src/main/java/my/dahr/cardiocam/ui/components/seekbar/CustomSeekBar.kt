@@ -1,9 +1,10 @@
 package my.dahr.cardiocam.ui.components.seekbar
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatSeekBar
 
@@ -30,6 +31,7 @@ class CustomSeekBar : AppCompatSeekBar {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
+    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         if (mProgressItemsList.size > 0) {
 
@@ -56,14 +58,53 @@ class CustomSeekBar : AppCompatSeekBar {
                     progressItemRight = progressBarWidth
                 }
 
-                val progressRect = Rect()
+                val progressRect = RectF()
 
                 progressRect.set(
-                    lastProgressX, thumbOffset / 2,
-                    progressItemRight, progressBarHeight - thumbOffset / 2
+                    lastProgressX.toFloat(), thumbOffset / 2f,
+                    progressItemRight.toFloat(), progressBarHeight - thumbOffset / 2f
                 )
 
-                canvas.drawRect(progressRect, progressPaint)
+
+                // Set the corner radius for the first and last item
+
+                val cornerRadius = 30f
+
+                when (i) {
+
+                    0 -> {
+                        // Draw rounded rectangle for the first item
+                        canvas.drawRoundRect(progressRect, cornerRadius, cornerRadius, progressPaint)
+                        // Draw a rectangle on the right half to remove the right round corners
+                        val rectRightHalf = RectF(
+                            (lastProgressX + progressItemWidth / 2).toFloat(), thumbOffset / 2f,
+                            progressItemRight.toFloat(), progressBarHeight - thumbOffset / 2f
+                        )
+                        canvas.drawRect(rectRightHalf, progressPaint)
+                    }
+
+                    mProgressItemsList.size - 1 -> {
+
+                        // Draw rounded rectangle for the last item
+                        canvas.drawRoundRect(progressRect, cornerRadius, cornerRadius, progressPaint)
+
+                        // Draw a rectangle on the left half to remove the left round corners
+                        val rectRightHalf = RectF(
+                            (lastProgressX + progressItemWidth / 2).toFloat(),
+                            thumbOffset / 2f,
+                            progressItemRight.toFloat(),
+                            progressBarHeight - thumbOffset / 2f
+                        )
+                        canvas.drawRect(rectRightHalf, progressPaint)
+
+                    }
+
+                    else -> {
+                        canvas.drawRect(progressRect, progressPaint)
+                    }
+
+                }
+
                 lastProgressX = progressItemRight
             }
 
@@ -71,4 +112,5 @@ class CustomSeekBar : AppCompatSeekBar {
 
         }
     }
+
 }
