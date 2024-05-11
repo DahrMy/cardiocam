@@ -11,7 +11,11 @@ class ViewPagerAdapter(
     fragment: FragmentActivity
 ) : FragmentStateAdapter(fragment) {
 
-    override fun getItemCount(): Int = 3
+    companion object {
+        const val ITEM_COUNT = 3
+    }
+
+    override fun getItemCount(): Int = ITEM_COUNT
 
     override fun createFragment(position: Int): Fragment {
         context.apply {
