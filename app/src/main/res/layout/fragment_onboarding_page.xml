@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_circle"
+        android:src="@drawable/circle_background"
         android:translationY="-24dp"
         tools:ignore="ContentDescription" />
 
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:src="@drawable/onboarding_page0" />
+            tools:src="@drawable/image_onboarding_page0" />
 
         <TextView
             android:id="@+id/tv_headline"

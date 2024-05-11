@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackgroundSecondary"
+    tools:context=".ui.measurement.MeasurementFragment">
+
+    <include layout="@layout/background_circle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_camera"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="44dp"
+            android:foreground="@drawable/circle_camera"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextureView
+                android:id="@+id/textureView_camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_measurementStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/rubik_bold"
+            android:text="@string/tv_measurementStatus_notDetected"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView_camera" />
+
+        <TextView
+            android:id="@+id/tv_measurementGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/rubik"
+            android:text="@string/tv_measurementGuide_notDetected"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_measurementStatus" />
+
+        <!-- v Heart v -->
+
+        <!-- TODO: Add shadow to the imageView -->
+        <ImageView
+            android:id="@+id/iv_heart"
+            android:layout_width="266dp"
+            android:layout_height="249dp"
+            android:contentDescription="@string/iv_logo_contentDescription"
+            android:src="@drawable/image_heart"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_measurementGuide"
+            tools:viewBindingIgnore="true" />
+
+        <TextView
+            android:id="@+id/tv_bpm"
+            android:textSize="74sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/rubik_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_heart"
+            app:layout_constraintEnd_toEndOf="@+id/iv_heart"
+            app:layout_constraintStart_toStartOf="@+id/iv_heart"
+            app:layout_constraintTop_toTopOf="@+id/iv_heart"
+            tools:text="65" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik"
+            android:text="@string/bpm_unit_text"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_heart"
+            app:layout_constraintStart_toStartOf="@+id/iv_heart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bpm" />
+
+        <!-- ^ Heart ^ -->
+
+        <!-- v Progress bar v -->
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="progress_bar, tv_percentage"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="31dp"
+            android:progressDrawable="@drawable/progress_bar_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_heart"
+            app:layout_constraintVertical_bias="0.25"
+            tools:progress="58" />
+
+        <TextView
+            android:id="@+id/tv_percentage"
+            android:text="@string/tv_percentage_text"
+            android:fontFamily="@font/rubik"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:shadowColor="@color/textShadow"
+            android:shadowDy="2.0"
+            android:shadowRadius="10"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/progress_bar"
+            tools:text="58%" />
+
+        <!-- ^ Progress bar ^ -->
+
+        <ImageView
+            android:id="@+id/iv_guide"
+            android:layout_width="141dp"
+            android:layout_height="174dp"
+            android:contentDescription="@string/iv_logo_contentDescription"
+            android:src="@drawable/image_guide"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_heart"
+            app:layout_constraintVertical_bias="0.1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

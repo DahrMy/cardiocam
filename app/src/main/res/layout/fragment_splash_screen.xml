@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_circle"
+        android:src="@drawable/circle_background"
         android:translationY="-126dp"
         tools:ignore="ContentDescription" />
 
@@ -23,7 +23,7 @@
         <!-- TODO: Add shadow to the imageView -->
         <ImageView
             android:id="@+id/iv_logo"
-            android:src="@drawable/app_logo"
+            android:src="@drawable/logo_app"
             android:contentDescription="@string/iv_logo_contentDescription"
             android:layout_width="284dp"
             android:layout_height="266dp"
@@ -44,6 +44,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+        <!-- v Progress bar v -->
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -77,6 +79,8 @@
             app:layout_constraintStart_toStartOf="@+id/progress_bar"
             app:layout_constraintTop_toTopOf="@+id/progress_bar"
             tools:text="58%" />
+
+        <!-- ^ Progress bar ^ -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

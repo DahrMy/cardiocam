@@ -23,19 +23,19 @@ class ViewPagerAdapter(
                 0 -> OnboardingPageFragment.newInstance(
                     resources.getString(R.string.onboardingPage_tv_headline_page0),
                     resources.getString(R.string.onboardingPage_tv_description_page0),
-                    R.drawable.onboarding_page0
+                    R.drawable.image_onboarding_page0
                 )
 
                 1 -> OnboardingPageFragment.newInstance(
                     resources.getString(R.string.onboardingPage_tv_headline_page1),
                     resources.getString(R.string.onboardingPage_tv_description_page1),
-                    R.drawable.onboarding_page1
+                    R.drawable.image_onboarding_page1
                 )
 
                 else /* 2 */ -> OnboardingPageFragment.newInstance(
                     resources.getString(R.string.onboardingPage_tv_headline_page2),
                     resources.getString(R.string.onboardingPage_tv_description_page2),
-                    R.drawable.onboarding_page2
+                    R.drawable.image_onboarding_page2
                 )
             }
         }
