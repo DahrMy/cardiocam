@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackgroundSecondary"
-    tools:context=".ui.result.ResultFragment">
+    tools:context=".ui.screen.result.ResultFragment">
 
     <include layout="@layout/background_circle" />
 
@@ -39,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    app:constraint_referenced_ids="tv_button_text_history, iv_button_ic_history"
+                    app:constraint_referenced_ids="tv_button_text_history, iv_button_history"
                     app:flow_horizontalGap="12dp" />
 
                 <TextView
@@ -53,7 +53,7 @@
                     android:textSize="22sp" />
 
                 <ImageView
-                    android:id="@+id/iv_button_ic_history"
+                    android:id="@+id/iv_button_history"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:contentDescription="@string/tv_button_history_text"
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_bold"
-                    android:text="@string/tv_cardTitle_text"
+                    android:text="@string/tv_resultLevel_text_normal"
                     android:textColor="@color/tvMeasureResultNormalText"
                     android:textSize="28sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -131,10 +131,10 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="11:07\n30/01/2024" />
 
-                <my.dahr.cardiocam.ui.components.seekbar.CustomSeekBar
+                <my.dahr.cardiocam.ui.component.seekbar.CustomSeekBar
                     android:id="@+id/seekBar_resultLevel"
                     android:layout_width="match_parent"
-                    android:layout_height="19dp"
+                    android:layout_height="21dp"
                     android:layout_marginTop="20dp"
                     android:clickable="false"
                     android:focusable="false"

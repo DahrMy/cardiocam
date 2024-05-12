@@ -1,4 +1,4 @@
-package my.dahr.cardiocam.ui.home
+package my.dahr.cardiocam.ui.screen.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentHomeBinding
-import my.dahr.cardiocam.ui.result.ResultFragment
+import my.dahr.cardiocam.ui.screen.result.ResultFragment
 
 
 class HomeFragment : Fragment() {

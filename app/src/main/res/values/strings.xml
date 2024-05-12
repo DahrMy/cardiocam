@@ -29,4 +29,8 @@
     <string name="tv_range_accelerated_text"><![CDATA[>100 BPM]]></string>
     <string name="tv_resultTime">%1$s\n%2$s</string>
     <string name="bt_result_text">Close</string>
+    <string name="tv_resultLevel_text_normal">Normal</string>
+    <string name="tv_resultLevel_text_delayed">Delayed</string>
+    <string name="tv_resultLevel_text_accelerated">Accelerated</string>
+    <string name="iv_close_contentDescription">Close</string>
 </resources>

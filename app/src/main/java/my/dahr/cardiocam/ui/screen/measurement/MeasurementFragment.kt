@@ -1,4 +1,4 @@
-package my.dahr.cardiocam.ui.measurement
+package my.dahr.cardiocam.ui.screen.measurement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

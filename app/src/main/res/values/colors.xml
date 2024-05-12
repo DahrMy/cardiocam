@@ -33,5 +33,6 @@
     <color name="barsBackground">#FFACAC</color>
     <color name="barsStroke">#FF4B4B</color>
     <color name="textShadow">#4D000000</color>
+    <color name="ivButtonClose">#808080</color>
 
 </resources>

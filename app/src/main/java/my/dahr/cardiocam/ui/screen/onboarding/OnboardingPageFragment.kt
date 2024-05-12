@@ -1,4 +1,4 @@
-package my.dahr.cardiocam.ui.onboarding
+package my.dahr.cardiocam.ui.screen.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

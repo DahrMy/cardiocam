@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackgroundSecondary"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.screen.home.HomeFragment">
 
     <include layout="@layout/background_circle" />
 
@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     app:flow_horizontalGap="12dp"
-                    app:constraint_referenced_ids="tv_button_text_history, iv_button_ic_history" />
+                    app:constraint_referenced_ids="tv_button_text_history, iv_button_history" />
 
                 <TextView
                     android:id="@+id/tv_button_text_history"
@@ -52,7 +52,7 @@
                     android:textSize="22sp" />
 
                 <ImageView
-                    android:id="@+id/iv_button_ic_history"
+                    android:id="@+id/iv_button_history"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:contentDescription="@string/tv_button_history_text"

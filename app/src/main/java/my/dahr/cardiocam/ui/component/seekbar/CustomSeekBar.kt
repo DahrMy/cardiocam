@@ -1,4 +1,4 @@
-package my.dahr.cardiocam.ui.components.seekbar
+package my.dahr.cardiocam.ui.component.seekbar
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatSeekBar
 
 class CustomSeekBar : AppCompatSeekBar {
-    private lateinit var mProgressItemsList: ArrayList<ProgressItem>
+    private lateinit var progressItemsList: List<ProgressPart>
 
     constructor(context: Context) : super(context)
 
@@ -21,13 +21,13 @@ class CustomSeekBar : AppCompatSeekBar {
         defStyle: Int
     ) : super(context, attrs, defStyle)
 
-    fun initData(progressItemsList: ArrayList<ProgressItem>) {
-        mProgressItemsList = progressItemsList
+    fun initData(progressItemsList: List<ProgressPart>) {
+        this.progressItemsList = progressItemsList
     }
 
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
-        if (mProgressItemsList.size > 0) {
+        if (progressItemsList.isNotEmpty()) {
 
             val progressBarWidth = width
             val progressBarHeight = height
@@ -36,19 +36,19 @@ class CustomSeekBar : AppCompatSeekBar {
             var progressItemWidth: Int
             var progressItemRight: Int
 
-            for (i in mProgressItemsList.indices) {
-                val progressItem: ProgressItem = mProgressItemsList[i]
+            for (i in progressItemsList.indices) {
+                val progressPart: ProgressPart = progressItemsList[i]
                 val progressPaint = Paint()
 
-                progressPaint.setColor(resources.getColor(progressItem.color, null))
+                progressPaint.setColor(resources.getColor(progressPart.color, null))
 
-                progressItemWidth = ((progressItem.progressItemPercentage
+                progressItemWidth = ((progressPart.progressItemPercentage
                         * progressBarWidth / 100).toInt())
 
                 progressItemRight = lastProgressX + progressItemWidth
 
                 // for last item give right to progress item to the width
-                if (i == mProgressItemsList.size - 1 && progressItemRight != progressBarWidth) {
+                if (i == progressItemsList.size - 1 && progressItemRight != progressBarWidth) {
                     progressItemRight = progressBarWidth
                 }
 
@@ -76,7 +76,7 @@ class CustomSeekBar : AppCompatSeekBar {
                         canvas.drawRect(rectRightHalf, progressPaint)
                     }
 
-                    mProgressItemsList.size - 1 -> {
+                    progressItemsList.size - 1 -> {
                         // Draw rounded rectangle for the last item
                         canvas.drawRoundRect(progressRect, cornerRadius, cornerRadius, progressPaint)
 

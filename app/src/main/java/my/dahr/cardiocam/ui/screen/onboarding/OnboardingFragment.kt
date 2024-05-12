@@ -1,4 +1,4 @@
-package my.dahr.cardiocam.ui.onboarding
+package my.dahr.cardiocam.ui.screen.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentOnboardingBinding
-import my.dahr.cardiocam.ui.home.HomeFragment
+import my.dahr.cardiocam.ui.screen.home.HomeFragment
 
 class OnboardingFragment : Fragment() {
 

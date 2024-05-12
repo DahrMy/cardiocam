@@ -5,13 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackgroundSecondary"
-    tools:context=".ui.measurement.MeasurementFragment">
+    tools:context=".ui.screen.measurement.MeasurementFragment">
 
     <include layout="@layout/background_circle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            android:contentDescription="@string/iv_close_contentDescription"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/ivButtonClose" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView_camera"

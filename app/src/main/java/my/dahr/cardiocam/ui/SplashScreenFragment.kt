@@ -13,7 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentSplashScreenBinding
-import my.dahr.cardiocam.ui.onboarding.OnboardingFragment
+import my.dahr.cardiocam.ui.screen.onboarding.OnboardingFragment
 
 @SuppressLint("CustomSplashScreen")
 /** Start from Android 12 we don't need to create custom splash screens.
