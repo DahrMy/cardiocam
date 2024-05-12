@@ -33,4 +33,6 @@
     <string name="tv_resultLevel_text_delayed">Delayed</string>
     <string name="tv_resultLevel_text_accelerated">Accelerated</string>
     <string name="iv_close_contentDescription">Close</string>
+    <string name="toolbar_history_title">History</string>
+    <string name="bt_clearHistory_text">Clear history</string>
 </resources>

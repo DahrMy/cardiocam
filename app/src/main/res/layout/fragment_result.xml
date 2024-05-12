@@ -259,7 +259,7 @@
         </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/bt_next"
+        android:id="@+id/bt_close"
         android:text="@string/bt_result_text"
         android:textSize="16sp"
         android:fontFamily="@font/rubik_medium"

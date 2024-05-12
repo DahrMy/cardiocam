@@ -1,5 +1,6 @@
 package my.dahr.cardiocam.ui.screen.result
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,13 +31,19 @@ class ResultFragment : Fragment() {
     }
 
     private fun setContent() {
+        setSeekBar()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setSeekBar() {
+        binding.seekBarResultLevel.setOnTouchListener { _, _ -> true }
         setSeekBarSeparated()
         setSeekBarProgress(50)
     }
 
     private fun setSeekBarProgress(progress: Int) {
         lifecycleScope.launch(Dispatchers.Main) {
-            for (i in 0 .. progress) {
+            for (i in 0..progress) {
                 binding.seekBarResultLevel.progress = i
                 delay(10)
             }
