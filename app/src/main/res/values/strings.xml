@@ -21,4 +21,12 @@
     <string name="toolbar_result_title">Result</string>
     <string name="tv_bpm_text_empty">__</string>
     <string name="tv_cardTitle_text">Your result</string>
+    <string name="chip_delayed_text">Delayed</string>
+    <string name="chip_normal_text">Normal</string>
+    <string name="chip_accelerated_text">Accelerated</string>
+    <string name="tv_range_delayed_text"><![CDATA[<60 BPM]]></string>
+    <string name="tv_range_normal_text">60–100 BPM</string>
+    <string name="tv_range_accelerated_text"><![CDATA[>100 BPM]]></string>
+    <string name="tv_resultTime">%1$s\n%2$s</string>
+    <string name="bt_result_text">Close</string>
 </resources>

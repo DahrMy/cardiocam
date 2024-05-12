@@ -30,7 +30,6 @@ class ResultFragment : Fragment() {
     ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         initDataToSeekbar()
-        binding.seekBarResultLevel.setOnTouchListener { _, _ -> true }
         lifecycleScope.launch(Dispatchers.Main) {
             for (i in 0 .. 100) {
                 binding.seekBarResultLevel.progress = i
@@ -46,18 +45,18 @@ class ResultFragment : Fragment() {
         // red span
         mProgressItem = ProgressItem()
         mProgressItem.progressItemPercentage = ((60 / totalSpan) * 100)
-        mProgressItem.color = R.color.measureResultSlowText // TODO: Change color
+        mProgressItem.color = R.color.seekBarMeasureResultDelayed
         progressItemList.add(mProgressItem)
 
         // blue span
         mProgressItem = ProgressItem()
         mProgressItem.progressItemPercentage = (100 / totalSpan) * 100
-        mProgressItem.color = R.color.measureResultNormalText // TODO: Change color
+        mProgressItem.color = R.color.seekBarMeasureResultNormal
         progressItemList.add(mProgressItem)
         // green span
         mProgressItem = ProgressItem()
         mProgressItem.progressItemPercentage = (200 / totalSpan) * 100
-        mProgressItem.color = R.color.measureResultFastText // TODO: Change color
+        mProgressItem.color = R.color.seekBarMeasureResultAccelerated
         progressItemList.add(mProgressItem)
 
         binding.seekBarResultLevel.apply {

@@ -7,11 +7,31 @@
     <color name="primary">#FF6B6B</color>
     <color name="primaryDark">#70A8CC</color>
     <color name="neutral">#E6E6E6</color>
-    <color name="measureResultNormalText">#1CE4B5</color>
-    <color name="measureResultSlowText">#55ADFF</color>
-    <color name="measureResultFastText">#FF5B5B</color>
 
+    <color name="cardViewResultBackground">#ECF7FF</color>
+
+    <color name="resultTime">#707070</color>
+
+    <color name="tvMeasureResultDelayedText">#55ADFF</color>
+    <color name="tvMeasureResultNormalText">#1CE4B5</color>
+    <color name="tvMeasureResultAcceleratedText">#FF5B5B</color>
+
+    <color name="seekBarMeasureResultDelayed">#21D7E2</color>
+    <color name="seekBarMeasureResultNormal">#1FF19B</color>
+    <color name="seekBarMeasureResultAccelerated">#FF4C4C</color>
+
+    <color name="tvMeasureResultRangeDefault">#A1A9AF</color>
+    <color name="tvMeasureResultRangeInclude">@color/black</color>
+
+    <!-- Result SeekBar -->
+    <color name="chipResult">#B2DEFB</color>
+    <color name="chipResultCircleDelayed">#55ADFF</color>
+    <color name="chipResultCircleNormal">#1CE4B5</color>
+    <color name="chipResultCircleAccelerated">#FF5B5B</color>
+
+    <!-- Progress bar -->
     <color name="barsBackground">#FFACAC</color>
     <color name="barsStroke">#FF4B4B</color>
     <color name="textShadow">#4D000000</color>
+
 </resources>

@@ -42,6 +42,7 @@
     <Button
         android:id="@+id/bt_next"
         android:text="@string/bt_onboarding_text_next"
+        android:textSize="16sp"
         android:fontFamily="@font/rubik_medium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
