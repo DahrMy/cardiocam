@@ -25,12 +25,6 @@ class CustomSeekBar : AppCompatSeekBar {
         mProgressItemsList = progressItemsList
     }
 
-    @Synchronized
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        // Auto-generated method stub
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    }
-
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         if (mProgressItemsList.size > 0) {
@@ -65,41 +59,40 @@ class CustomSeekBar : AppCompatSeekBar {
                     progressItemRight.toFloat(), progressBarHeight - thumbOffset / 2f
                 )
 
-
                 // Set the corner radius for the first and last item
-
                 val cornerRadius = 30f
-
                 when (i) {
 
                     0 -> {
                         // Draw rounded rectangle for the first item
                         canvas.drawRoundRect(progressRect, cornerRadius, cornerRadius, progressPaint)
+
                         // Draw a rectangle on the right half to remove the right round corners
                         val rectRightHalf = RectF(
                             (lastProgressX + progressItemWidth / 2).toFloat(), thumbOffset / 2f,
                             progressItemRight.toFloat(), progressBarHeight - thumbOffset / 2f
                         )
+
                         canvas.drawRect(rectRightHalf, progressPaint)
                     }
 
                     mProgressItemsList.size - 1 -> {
-
                         // Draw rounded rectangle for the last item
                         canvas.drawRoundRect(progressRect, cornerRadius, cornerRadius, progressPaint)
 
                         // Draw a rectangle on the left half to remove the left round corners
-                        val rectRightHalf = RectF(
-                            (lastProgressX + progressItemWidth / 2).toFloat(),
-                            thumbOffset / 2f,
-                            progressItemRight.toFloat(),
-                            progressBarHeight - thumbOffset / 2f
+                        val rectLeftHalf = RectF(
+                            lastProgressX.toFloat(),
+                            thumbOffset / 2F,
+                            (((progressItemRight - lastProgressX) / 2) + lastProgressX).toFloat(),
+                            (progressBarHeight - (thumbOffset / 2)).toFloat()
                         )
-                        canvas.drawRect(rectRightHalf, progressPaint)
 
+                        canvas.drawRect(rectLeftHalf, progressPaint)
                     }
 
                     else -> {
+                        // Draw a simple rectangle between first and last items
                         canvas.drawRect(progressRect, progressPaint)
                     }
 
