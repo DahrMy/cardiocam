@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    // Not working
+    // implementation("com.github.kibotu:KalmanRx:1.2.1")
+
     // Splashscreen
     implementation(libs.androidx.core.splashscreen)
 
@@ -51,9 +54,17 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
+    // ReactiveX
+    implementation(libs.reactivex.java)
+    implementation(libs.reactivex.android)
+    implementation(libs.reactivex.kotlin)
+
     // Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt)
+
+    // Apache
+    implementation(libs.apache.collections4)
 
     // Default
     implementation(libs.androidx.core.ktx)
