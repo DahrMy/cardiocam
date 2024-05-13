@@ -11,14 +11,15 @@ fun MeasurementRecord.toEntity() = MeasurementRecordEntity(
     time = this.timestamp
 )
 
-fun MeasurementRecordEntity.toModel() = MeasurementRecord(
-    bpm = this.bpm,
-    timestamp = this.time
-)
+fun MeasurementRecordEntity?.toModel(): MeasurementRecord? {
+    return if (this != null) {
+        MeasurementRecord(bpm = this.bpm, timestamp = this.time)
+    } else null
+}
 
 fun List<MeasurementRecordEntity>.toModels(): MutableList<MeasurementRecord> {
     val list = mutableListOf<MeasurementRecord>()
-    this.forEach { list.add(it.toModel()) }
+    this.forEach { list.add(it.toModel()!!) }
     return list
 }
 

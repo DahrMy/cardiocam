@@ -13,7 +13,7 @@ interface MeasurementRecordDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRecord(entity: MeasurementRecordEntity)
 
-    @Query("SELECT * FROM measurement_records")
+    @Query("SELECT * FROM measurement_records ORDER BY time DESC")
     fun getAllEntities(): Flow<List<MeasurementRecordEntity>>
 
     @Query("SELECT * FROM measurement_records ORDER BY time DESC LIMIT 1")

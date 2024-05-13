@@ -62,8 +62,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
         </androidx.appcompat.widget.Toolbar>
 
         <TextView
@@ -71,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rubik_bold"
-            android:text="@string/tv_lastMeasurement_text"
+            android:text="@string/tv_lastMeasurement_text_default"
             android:textAlignment="center"
             android:textSize="28sp"
             android:layout_marginTop="43dp"

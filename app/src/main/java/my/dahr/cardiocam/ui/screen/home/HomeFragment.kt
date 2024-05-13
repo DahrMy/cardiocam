@@ -10,6 +10,8 @@ import android.view.WindowManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentHomeBinding
@@ -22,6 +24,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding get() = _binding!!
 
+    private val viewModel by viewModels<HomeViewModel>()
+
     private lateinit var requestPermission: ActivityResultLauncher<String?>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +34,7 @@ class HomeFragment : Fragment() {
             if (isGranted) {
                 changeFragment(MeasurementFragment())
             } else {
-                // Do something if not guaranteed
+                showDialog()
             }
         }
     }
@@ -42,8 +46,20 @@ class HomeFragment : Fragment() {
 
         setSystemBarsColor()
         setListeners()
+        initObservers()
+        viewModel.loadLastMeasurement()
 
         return binding.root
+    }
+
+    private fun initObservers() {
+        viewModel.lastMeasurementLiveData.observe(viewLifecycleOwner) { record ->
+            binding.tvLastMeasurement.text = if (record != null) {
+                String.format(resources.getString(R.string.tv_lastMeasurement_text), record.bpm)
+            } else {
+                resources.getString(R.string.tv_lastMeasurement_text_default)
+            }
+        }
     }
 
     private fun setListeners() {
@@ -62,6 +78,16 @@ class HomeFragment : Fragment() {
             .addToBackStack("")
             .replace(R.id.fragment_container_view, fragment)
             .commit()
+    }
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.dialog_permission_title))
+            .setMessage(resources.getString(R.string.dialog_permission_message))
+            .setNeutralButton(resources.getString(R.string.ok)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun setSystemBarsColor() {

@@ -7,6 +7,7 @@
     <string name="bt_onboarding_text_start">Start</string>
     <string name="tv_button_history_text">History</string>
     <string name="tv_lastMeasurement_text">Last measurement:\n%d BPM</string>
+    <string name="tv_lastMeasurement_text_default">Take your first measurement!</string>
 
     <string name="onboardingPage_tv_headline_page0">Your blood pressure tracker</string>
     <string name="onboardingPage_tv_headline_page1">Personalized advice</string>
@@ -42,4 +43,7 @@
     <string name="dialog_clearHistory_message">This action cannot be undone</string>
     <string name="dialog_clearHistory_action_positive">Clear</string>
     <string name="dialog_clearHistory_action_negative">Cancel</string>
+    <string name="dialog_permission_title">Permission required</string>
+    <string name="dialog_permission_message">Camera permission is required in order to measure pulse.</string>
+    <string name="ok">OK</string>
 </resources>
