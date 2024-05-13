@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Cardiocam</string>
+    <string name="app_name" translatable="false">Cardiocam</string>
     <string name="iv_logo_contentDescription">App logo</string>
-    <string name="splashScreen_greeting">Heart Rate</string>
-    <string name="tv_percentage_text">%d%%</string>
+    <string name="splashScreen_greeting" translatable="false">Heart Rate</string>
+    <string name="tv_percentage_text" translatable="false">%d%%</string>
     <string name="bt_onboarding_text_next">Next</string>
     <string name="bt_onboarding_text_start">Start</string>
     <string name="tv_button_history_text">History</string>
-    <string name="tv_lastMeasurement_text">Last measurement:\n%d BPM</string>
+    <string name="tv_lastMeasurement_text">Last measurement: %d BPM</string>
     <string name="tv_lastMeasurement_text_default">Take your first measurement!</string>
 
     <string name="onboardingPage_tv_headline_page0">Your blood pressure tracker</string>
@@ -20,18 +20,18 @@
     <string name="tv_measurementStatus_detected">Measurement is in progress.</string>
     <string name="tv_measurementGuide_notDetected">Place your finger firmly against the camera</string>
     <string name="tv_measurementGuide_detected">We determine your pulse. Hold on!</string>
-    <string name="bpm_unit_text">bpm</string>
+    <string name="bpm_unit_text" translatable="false">bpm</string>
     <string name="toolbar_result_title">Result</string>
-    <string name="tv_bpm_text_empty">__</string>
+    <string name="tv_bpm_text_empty" translatable="false">__</string>
     <string name="tv_cardTitle_text">Your result</string>
     <string name="chip_delayed_text">Delayed</string>
     <string name="chip_normal_text">Normal</string>
     <string name="chip_accelerated_text">Accelerated</string>
-    <string name="tv_range_delayed_text"><![CDATA[<60 BPM]]></string>
-    <string name="tv_range_normal_text">60–100 BPM</string>
-    <string name="tv_range_accelerated_text"><![CDATA[>100 BPM]]></string>
-    <string name="tv_resultTime">%1$s\n%2$s</string>
-    <string name="tv_measurementValue">%s BMP</string>
+    <string name="tv_range_delayed_text" translatable="false"><![CDATA[<60 BPM]]></string>
+    <string name="tv_range_normal_text" translatable="false">60–100 BPM</string>
+    <string name="tv_range_accelerated_text" translatable="false"><![CDATA[>100 BPM]]></string>
+    <string name="tv_resultTime" translatable="false">%1$s\n%2$s</string>
+    <string name="tv_measurementValue" translatable="false">%s BMP</string>
     <string name="bt_result_text">Close</string>
     <string name="tv_resultLevel_text_normal">Normal</string>
     <string name="tv_resultLevel_text_delayed">Delayed</string>
@@ -45,5 +45,5 @@
     <string name="dialog_clearHistory_action_negative">Cancel</string>
     <string name="dialog_permission_title">Permission required</string>
     <string name="dialog_permission_message">Camera permission is required in order to measure pulse.</string>
-    <string name="ok">OK</string>
+    <string name="ok" translatable="false">OK</string>
 </resources>

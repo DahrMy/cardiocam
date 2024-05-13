@@ -84,7 +84,7 @@ class HomeFragment : Fragment() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(resources.getString(R.string.dialog_permission_title))
             .setMessage(resources.getString(R.string.dialog_permission_message))
-            .setNeutralButton(resources.getString(R.string.ok)) { dialog, _ ->
+            .setPositiveButton(resources.getString(R.string.ok)) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()

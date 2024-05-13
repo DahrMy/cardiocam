@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iv_logo_contentDescription">Лого додатку</string>
+    <string name="bt_onboarding_text_next">Продовжити</string>
+    <string name="bt_onboarding_text_start">Почати!</string>
+    <string name="tv_button_history_text">Історія</string>
+    <string name="tv_lastMeasurement_text">Останній вимір: %d BPM</string>
+    <string name="tv_lastMeasurement_text_default">Виконайте своє перше вимірювання!</string>
+    <string name="onboardingPage_tv_headline_page0">Ваш трекер тиску</string>
+    <string name="onboardingPage_tv_headline_page1">Персоналізовані поради</string>
+    <string name="onboardingPage_tv_headline_page2">Нагадування</string>
+    <string name="onboardingPage_tv_description_page0">Зазначайте, відстежуйте та аналізуйте свої показники артеріального тиску.</string>
+    <string name="onboardingPage_tv_description_page1">Програма надає дієві поради, які допоможуть вам підтримувати оптимальний рівень артеріального тиску та  зменшити фактори ризику серцево-судинних захворювань.</string>
+    <string name="onboardingPage_tv_description_page2">Не відставайте від графіка контролю артеріального тиску та прийому ліків за допомогою спеціальних нагадувань.</string>
+    <string name="onboarding_iv_foreground_contentDescription">Зображення переднього плану</string>
+    <string name="tv_measurementStatus_notDetected">Палець не виявлено</string>
+    <string name="tv_measurementStatus_detected">Йде Вимірювання.</string>
+    <string name="tv_measurementGuide_notDetected">Щільно прикладіть палець до камери</string>
+    <string name="tv_measurementGuide_detected">Визначаємо ваш пульс. Утримуйте!</string>
+    <string name="toolbar_result_title">Результат</string>
+    <string name="tv_cardTitle_text">Ваш Результат</string>
+    <string name="chip_delayed_text">Уповільнений</string>
+    <string name="chip_normal_text">Звичайний</string>
+    <string name="chip_accelerated_text">Прискорений</string>
+    <string name="bt_result_text">Готово</string>
+    <string name="tv_resultLevel_text_normal">Звичайно</string>
+    <string name="tv_resultLevel_text_delayed">Повільно</string>
+    <string name="tv_resultLevel_text_accelerated">Прискорено</string>
+    <string name="iv_close_contentDescription">Закрити</string>
+    <string name="toolbar_history_title">Історія</string>
+    <string name="bt_clearHistory_text">Очистити історію</string>
+    <string name="dialog_clearHistory_title">Ви впевнені?</string>
+    <string name="dialog_clearHistory_message">Цю дію не можна буде скасувати</string>
+    <string name="dialog_clearHistory_action_positive">Очистити</string>
+    <string name="dialog_clearHistory_action_negative">Скасувати</string>
+    <string name="dialog_permission_title">Потрібен дозвіл</string>
+    <string name="dialog_permission_message">Для вимірювання пульсу потрібна роздільна здатність камери.</string>
+</resources>
