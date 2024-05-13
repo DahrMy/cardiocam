@@ -10,20 +10,14 @@ appcompat = "1.6.1"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
-recyclerview = "1.3.2"
 
 # KotlinX
 coroutines = "1.8.0"
 
-# ReactiveX
-rxAndroid = "3.0.2"
-rxJava = "3.1.5"
-rxKotlin = "3.0.1"
-
 # Other
 coreSplashscreen = "1.0.1"
 dotsindicator = "5.0"
-apache = "4.0"
+recyclerview = "1.3.2"
 
 [libraries]
 # Default
@@ -46,16 +40,7 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
-# ReactiveX
-reactivex-android = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxAndroid" }
-reactivex-java = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxJava" }
-reactivex-kotlin = { group = "io.reactivex.rxjava3", name = "rxkotlin", version.ref = "rxKotlin" }
-
-# Apache
-apache-collections4 = { group = "org.apache.commons", name = "commons-collections4", version.ref = "apache" }
-
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-android-library = { id = "com.android.library", version.ref = "agp" }
 

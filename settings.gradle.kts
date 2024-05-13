@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Cardiocam"
 include(":app")
-include(":heartrateometer")
