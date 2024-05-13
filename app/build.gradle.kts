@@ -53,6 +53,7 @@ dependencies {
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.reactive)
 
     // ReactiveX
     implementation(libs.reactivex.java)
