@@ -16,7 +16,9 @@
     <string name="onboardingPage_tv_description_page2">Stay on schedule with blood pressure monitoring and medication with special reminders.</string>
     <string name="onboarding_iv_foreground_contentDescription">Onboarding foreground image</string>
     <string name="tv_measurementStatus_notDetected">No finger detected</string>
+    <string name="tv_measurementStatus_detected">Measurement is in progress.</string>
     <string name="tv_measurementGuide_notDetected">Place your finger firmly against the camera</string>
+    <string name="tv_measurementGuide_detected">We determine your pulse. Hold on!</string>
     <string name="bpm_unit_text">bpm</string>
     <string name="toolbar_result_title">Result</string>
     <string name="tv_bpm_text_empty">__</string>

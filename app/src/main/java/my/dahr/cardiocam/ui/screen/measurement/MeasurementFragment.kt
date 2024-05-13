@@ -5,18 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentMeasurementBinding
 import my.dahr.cardiocam.hrometer.HeartRateOmeter
 import my.dahr.cardiocam.kalmanrx.jama.Matrix
 import my.dahr.cardiocam.kalmanrx.jkalman.JKalman
+import my.dahr.cardiocam.ui.screen.result.ResultFragment
 
 @AndroidEntryPoint
 class MeasurementFragment : Fragment() {
 
     private var _binding: FragmentMeasurementBinding? = null
     private val binding: FragmentMeasurementBinding get() = _binding!!
+
+    private val viewModel by viewModels<MeasurementViewModel>()
 
     private var subscription: CompositeDisposable? = null
 
@@ -26,6 +31,7 @@ class MeasurementFragment : Fragment() {
         _binding = FragmentMeasurementBinding.inflate(inflater, container, false)
 
         setListeners()
+        initObservers()
 
         return binding.root
     }
@@ -54,8 +60,21 @@ class MeasurementFragment : Fragment() {
         }
     }
 
-    private fun startMeasurement() {
+    private fun initObservers() {
+        viewModel.isReadyLiveData.observe(viewLifecycleOwner) { isReady ->
+            if (isReady) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, ResultFragment()) // TODO: Pass a measureRecord into ResultFragment instance
+                    .commit()
+            }
+        }
+        viewModel.progressLiveData.observe(viewLifecycleOwner) { progress ->
+            binding.progressBar.progress = progress
+            binding.tvPercentage.text = resources.getString(R.string.tv_percentage_text, progress)
+        }
+    }
 
+    private fun startMeasurement() {
         val kalman = JKalman(2, 1)
 
         // measurement [x]
@@ -84,8 +103,8 @@ class MeasurementFragment : Fragment() {
                 val c = kalman.Correct(m)
 
                 val bpm = it.copy(value = c.get(0, 0).toInt())
-//                Log.v("HeartRateOmeter", "[onBpm] ${it.value} => ${bpm.value}")
                 onBpm(bpm)
+
             }, Throwable::printStackTrace)
 
         subscription?.add(bpmUpdates)
@@ -93,10 +112,27 @@ class MeasurementFragment : Fragment() {
 
     private fun onBpm(bpm: HeartRateOmeter.Bpm) {
         binding.tvBpm.text = "${bpm.value}"
+        viewModel.addMeasurement(bpm.value)
     }
 
     private fun onFingerChange(fingerDetected: Boolean) {
-        binding.tvMeasurementStatus.text = "$fingerDetected"
+        binding.apply {
+            if (fingerDetected) {
+                tvMeasurementStatus.text = resources.getString(R.string.tv_measurementStatus_detected)
+                tvMeasurementGuide.text = resources.getString(R.string.tv_measurementGuide_detected)
+                ivGuide.visibility = View.GONE
+                groupProgressBar.visibility = View.VISIBLE
+            } else {
+                tvMeasurementStatus.text = resources.getString(R.string.tv_measurementStatus_notDetected)
+                tvMeasurementGuide.text = resources.getString(R.string.tv_measurementGuide_notDetected)
+                ivGuide.visibility = View.VISIBLE
+                groupProgressBar.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun animateHeart() {
+        // TODO
     }
 
 }
