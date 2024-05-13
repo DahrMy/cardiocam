@@ -1,10 +1,12 @@
 package my.dahr.cardiocam.ui.screen.result
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
@@ -12,14 +14,29 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import my.dahr.cardiocam.R
+import my.dahr.cardiocam.data.model.MeasurementRecord
 import my.dahr.cardiocam.databinding.FragmentResultBinding
 import my.dahr.cardiocam.ui.component.seekbar.ProgressPart
+
+const val MEASUREMENT_RECORD = "measurement_record"
 
 @AndroidEntryPoint
 class ResultFragment : Fragment() {
 
     private var _binding: FragmentResultBinding? = null
     private val binding: FragmentResultBinding get() = _binding!!
+
+    private lateinit var measurementResult: MeasurementRecord
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            measurementResult = arguments?.getParcelable(MEASUREMENT_RECORD, MeasurementRecord::class.java)!!
+        } else {
+            @Suppress("DEPRECATION")
+            measurementResult = arguments?.getParcelable(MEASUREMENT_RECORD)!!
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,6 +50,7 @@ class ResultFragment : Fragment() {
 
     private fun setContent() {
         setSeekBar()
+        Toast.makeText(requireContext(), "$measurementResult", Toast.LENGTH_SHORT).show()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -65,5 +83,14 @@ class ResultFragment : Fragment() {
         }
     }
 
+    companion object {
+        @JvmStatic
+        fun newInstance(measurementRecord: MeasurementRecord) =
+            ResultFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(MEASUREMENT_RECORD, measurementRecord)
+                }
+            }
+    }
 
 }

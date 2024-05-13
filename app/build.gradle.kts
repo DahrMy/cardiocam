@@ -64,6 +64,12 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt)
 
+    // Room
+    ksp(libs.androidx.room.compiler)
+    annotationProcessor(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+
     // Apache
     implementation(libs.apache.collections4)
 

@@ -9,12 +9,14 @@ espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.12.0"
 activity = "1.9.0"
+recyclerview = "1.3.2"
 constraintlayout = "2.1.4"
 fragment = "1.7.0"
 
 #noinspection GradleDependency
 ksp = "1.9.10-1.0.13"
 hilt = "2.50"
+room = "2.6.1"
 
 # KotlinX
 coroutines = "1.8.1"
@@ -27,7 +29,6 @@ rxKotlin = "3.0.1"
 # Other
 coreSplashscreen = "1.0.1"
 dotsindicator = "5.0"
-recyclerview = "1.3.2"
 apacheCollections = "4.4"
 
 [libraries]
@@ -51,6 +52,11 @@ dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindi
 # Hilt
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+
+# Room
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
 # KotlinX
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }

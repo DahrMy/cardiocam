@@ -64,8 +64,10 @@ class MeasurementFragment : Fragment() {
         viewModel.isReadyLiveData.observe(viewLifecycleOwner) { isReady ->
             if (isReady) {
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, ResultFragment()) // TODO: Pass a measureRecord into ResultFragment instance
-                    .commit()
+                    .replace(
+                        R.id.fragment_container_view,
+                        ResultFragment.newInstance(viewModel.measurementRecord!!)
+                    ).commit()
             }
         }
         viewModel.progressLiveData.observe(viewLifecycleOwner) { progress ->
