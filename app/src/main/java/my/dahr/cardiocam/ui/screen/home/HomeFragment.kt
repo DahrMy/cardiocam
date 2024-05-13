@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentHomeBinding
 import my.dahr.cardiocam.ui.screen.history.HistoryFragment
 import my.dahr.cardiocam.ui.screen.measurement.MeasurementFragment
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

@@ -1,7 +1,7 @@
 [versions]
 # Default
 agp = "8.4.0"
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -11,8 +11,12 @@ material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 
+#noinspection GradleDependency
+ksp = "1.9.10-1.0.13"
+hilt = "2.50"
+
 # KotlinX
-coroutines = "1.8.0"
+coroutines = "1.8.1"
 
 # Other
 coreSplashscreen = "1.0.1"
@@ -35,6 +39,10 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 # Dot indicators
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
 
+# Hilt
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+
 # KotlinX
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -43,4 +51,6 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 

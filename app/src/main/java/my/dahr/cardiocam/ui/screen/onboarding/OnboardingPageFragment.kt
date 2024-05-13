@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.databinding.FragmentOnboardingPageBinding
 
 private const val HEADLINE = "headline"
 private const val DESCRIPTION = "description"
 private const val IMAGE_RES = "image"
 
+@AndroidEntryPoint
 class OnboardingPageFragment : Fragment() {
 
     private var _binding: FragmentOnboardingPageBinding? = null

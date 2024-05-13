@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentHistoryBinding
 
+@AndroidEntryPoint
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null

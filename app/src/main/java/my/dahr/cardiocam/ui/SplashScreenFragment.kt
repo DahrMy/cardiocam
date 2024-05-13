@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -21,6 +22,7 @@ import my.dahr.cardiocam.ui.screen.onboarding.OnboardingFragment
 * Horizontal progress indicator that I should implement according to design.
 * See: https://developer.android.com/develop/ui/views/launch/splash-screen#kts
  **/
+@AndroidEntryPoint
 class SplashScreenFragment : Fragment() {
 
     private var _binding: FragmentSplashScreenBinding? = null

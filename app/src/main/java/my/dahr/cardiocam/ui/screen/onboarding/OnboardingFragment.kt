@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentOnboardingBinding
 import my.dahr.cardiocam.ui.screen.home.HomeFragment
 
+@AndroidEntryPoint
 class OnboardingFragment : Fragment() {
 
     private var _binding: FragmentOnboardingBinding? = null
