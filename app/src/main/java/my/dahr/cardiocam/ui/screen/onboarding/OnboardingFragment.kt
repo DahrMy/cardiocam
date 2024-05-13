@@ -1,5 +1,6 @@
 package my.dahr.cardiocam.ui.screen.onboarding
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentOnboardingBinding
 import my.dahr.cardiocam.ui.screen.home.HomeFragment
+import my.dahr.cardiocam.utils.FIRST_LAUNCH
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class OnboardingFragment : Fragment() {
@@ -19,6 +22,9 @@ class OnboardingFragment : Fragment() {
     private val binding: FragmentOnboardingBinding get() = _binding!!
 
     private lateinit var viewPager: ViewPager2
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,12 +39,20 @@ class OnboardingFragment : Fragment() {
 
         binding.btNext.setOnClickListener {
             if (viewPager.currentItem < lastItemPosition) {
+
                 viewPager.currentItem++
                 setButtonNextText()
+
             } else {
+
+                sharedPreferences.edit()
+                    .putBoolean(FIRST_LAUNCH, false)
+                    .apply()
+
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_view, HomeFragment())
                     .commit()
+
             }
         }
 

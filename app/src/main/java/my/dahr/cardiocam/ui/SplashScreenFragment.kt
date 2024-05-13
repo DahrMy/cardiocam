@@ -1,6 +1,7 @@
 package my.dahr.cardiocam.ui
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import my.dahr.cardiocam.R
 import my.dahr.cardiocam.databinding.FragmentSplashScreenBinding
+import my.dahr.cardiocam.ui.screen.home.HomeFragment
 import my.dahr.cardiocam.ui.screen.onboarding.OnboardingFragment
+import my.dahr.cardiocam.utils.FIRST_LAUNCH
+import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")
 /** Start from Android 12 we don't need to create custom splash screens.
@@ -27,6 +31,9 @@ class SplashScreenFragment : Fragment() {
 
     private var _binding: FragmentSplashScreenBinding? = null
     private val binding: FragmentSplashScreenBinding get() = _binding!!
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,11 +55,12 @@ class SplashScreenFragment : Fragment() {
 
         lifecycleScope.launch(Dispatchers.Main) {
             if (isReady.await()) {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, OnboardingFragment())
-                    .commit()
+                if (sharedPreferences.getBoolean(FIRST_LAUNCH, true)) {
+                    launchFragment(OnboardingFragment())
+                } else {
+                    launchFragment(HomeFragment())
+                }
             }
-
         }
 
     }
@@ -61,6 +69,12 @@ class SplashScreenFragment : Fragment() {
         binding.tvPercentage.text =
             String.format(resources.getString(R.string.tv_percentage_text), value)
         binding.progressBar.progress = value
+    }
+
+    private fun launchFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, fragment)
+            .commit()
     }
 
 }
