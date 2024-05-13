@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,10 @@ import my.dahr.cardiocam.R
 import my.dahr.cardiocam.data.model.MeasurementRecord
 import my.dahr.cardiocam.databinding.FragmentResultBinding
 import my.dahr.cardiocam.ui.component.seekbar.ProgressPart
+import my.dahr.cardiocam.ui.screen.history.HistoryFragment
+import my.dahr.cardiocam.ui.screen.home.HomeFragment
+import my.dahr.cardiocam.utils.timestampToDate
+import my.dahr.cardiocam.utils.timestampToTime
 
 const val MEASUREMENT_RECORD = "measurement_record"
 
@@ -26,7 +31,10 @@ class ResultFragment : Fragment() {
     private var _binding: FragmentResultBinding? = null
     private val binding: FragmentResultBinding get() = _binding!!
 
+    private val viewModel by viewModels<ResultViewModel>()
+
     private lateinit var measurementResult: MeasurementRecord
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,21 +51,91 @@ class ResultFragment : Fragment() {
     ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
 
+        setListeners()
         setContent()
 
         return binding.root
     }
 
+    private fun setListeners() {
+        binding.layoutBtHistory.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .addToBackStack("")
+                .replace(R.id.fragment_container_view, HistoryFragment())
+                .commit()
+        }
+        binding.btClose.setOnClickListener {
+            parentFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view, HomeFragment())
+                .commit()
+        }
+    }
+
     private fun setContent() {
         setSeekBar()
-        Toast.makeText(requireContext(), "$measurementResult", Toast.LENGTH_SHORT).show()
+        setHeartRateLevel()
+        setTime()
     }
+    private fun setHeartRateLevel() {
+        binding.apply {
+            @Suppress("KotlinConstantConditions")
+            when {
+                measurementResult.bpm < 60 -> {
+                    tvResultLevel.text =
+                        resources.getString(R.string.tv_resultLevel_text_delayed)
+                    tvResultLevel.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultDelayedText, null)
+                    )
+                    tvRangeDelayed.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultRangeInclude, null)
+                    )
+                }
+
+                measurementResult.bpm in 60 .. 100 -> {
+                    tvResultLevel.text =
+                        resources.getString(R.string.tv_resultLevel_text_normal)
+                    tvResultLevel.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultNormalText, null)
+                    )
+                    tvRangeNormal.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultRangeInclude, null)
+                    )
+                }
+
+                measurementResult.bpm > 100 -> {
+                    tvResultLevel.text =
+                        resources.getString(R.string.tv_resultLevel_text_accelerated)
+                    tvResultLevel.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultAcceleratedText, null)
+                    )
+                    tvRangeAccelerated.setTextColor(
+                        resources.getColor(R.color.tvMeasureResultRangeInclude, null)
+                    )
+                }
+            }
+        }
+
+        setSeekBarProgress(viewModel.calculateSeekbarPosition(measurementResult.bpm.toDouble()))
+
+    }
+
+    private fun setTime() {
+        val date = timestampToDate(measurementResult.timestamp)
+        val time = timestampToTime(measurementResult.timestamp)
+
+        binding.tvResultTime.text = String.format(
+            resources.getString(R.string.tv_resultTime),
+            time, date
+        )
+
+    }
+
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setSeekBar() {
         binding.seekBarResultLevel.setOnTouchListener { _, _ -> true }
         setSeekBarSeparated()
-        setSeekBarProgress(50)
     }
 
     private fun setSeekBarProgress(progress: Int) {
@@ -70,11 +148,11 @@ class ResultFragment : Fragment() {
     }
 
     private fun setSeekBarSeparated() {
-        val partWidthPercentage = 100 / 3F
+        val percentage = viewModel.partWidthPercentage
         val progressPartList = listOf(
-            ProgressPart(R.color.seekBarMeasureResultDelayed, partWidthPercentage - 2.5F),
-            ProgressPart(R.color.seekBarMeasureResultNormal, partWidthPercentage + 5),
-            ProgressPart(R.color.seekBarMeasureResultAccelerated, partWidthPercentage - 2.5F)
+            ProgressPart(R.color.seekBarMeasureResultDelayed, percentage),
+            ProgressPart(R.color.seekBarMeasureResultNormal, percentage),
+            ProgressPart(R.color.seekBarMeasureResultAccelerated, percentage)
         )
 
         binding.seekBarResultLevel.apply {
