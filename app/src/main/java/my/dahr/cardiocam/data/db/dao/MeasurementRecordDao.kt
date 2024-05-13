@@ -17,9 +17,9 @@ interface MeasurementRecordDao {
     fun getAllEntities(): Flow<List<MeasurementRecordEntity>>
 
     @Query("SELECT * FROM measurement_records ORDER BY time DESC LIMIT 1")
-    fun getLastEntry(): MeasurementRecordEntity
+    suspend fun getLastEntry(): MeasurementRecordEntity
 
     @Query("DELETE FROM measurement_records")
-    fun clearTable()
+    suspend fun clearTable()
 
 }

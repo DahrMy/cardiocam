@@ -17,7 +17,7 @@
         android:layout_margin="8dp">
 
         <TextView
-            android:id="@+id/tv_item_history_measurementValue"
+            android:id="@+id/tv_measurementValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -37,7 +37,7 @@
             android:src="@drawable/divider_item_history" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

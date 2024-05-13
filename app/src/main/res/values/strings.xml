@@ -30,6 +30,7 @@
     <string name="tv_range_normal_text">60–100 BPM</string>
     <string name="tv_range_accelerated_text"><![CDATA[>100 BPM]]></string>
     <string name="tv_resultTime">%1$s\n%2$s</string>
+    <string name="tv_measurementValue">%s BMP</string>
     <string name="bt_result_text">Close</string>
     <string name="tv_resultLevel_text_normal">Normal</string>
     <string name="tv_resultLevel_text_delayed">Delayed</string>
@@ -37,4 +38,8 @@
     <string name="iv_close_contentDescription">Close</string>
     <string name="toolbar_history_title">History</string>
     <string name="bt_clearHistory_text">Clear history</string>
+    <string name="dialog_clearHistory_title">Are you sure?</string>
+    <string name="dialog_clearHistory_message">This action cannot be undone</string>
+    <string name="dialog_clearHistory_action_positive">Clear</string>
+    <string name="dialog_clearHistory_action_negative">Cancel</string>
 </resources>
